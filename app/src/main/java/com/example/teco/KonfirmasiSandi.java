@@ -25,8 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import Pengguna.Menu_Pengguna;
-
-import static com.example.teco.BaseURL.KonfimasiSandi;
+import Server.BaseURL;
 
 public class KonfirmasiSandi extends AppCompatActivity {
 
@@ -92,10 +91,12 @@ public class KonfirmasiSandi extends AppCompatActivity {
             }
         });
     }
+
     public void konfirmasiSandi(JSONObject datas){
         pDialog.setMessage("Mohon Tunggu .........");
+        Log.e("adada", "adadada");
         showDialog();
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, KonfimasiSandi, datas,
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, BaseURL.konfirmasiSandi, datas,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -127,6 +128,7 @@ public class KonfirmasiSandi extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 hideDialog();
                 VolleyLog.e("Error: ", error.getMessage());
+                Log.e("Error Response = ", error.toString());
             }
         });
         mRequestQueue.add(req);

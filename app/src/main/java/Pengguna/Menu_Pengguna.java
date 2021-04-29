@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.teco.DataPengguna;
+import com.example.teco.History;
 import com.example.teco.R;
 
 import User.MenuLogin;
@@ -67,7 +68,7 @@ public class Menu_Pengguna extends AppCompatActivity {
             buttonhis.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(Menu_Pengguna.this, DataPengguna.class);
+                    Intent i = new Intent(Menu_Pengguna.this, History.class);
                     startActivity(i);
                     finish();
                 }

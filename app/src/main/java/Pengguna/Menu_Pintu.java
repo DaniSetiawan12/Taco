@@ -3,7 +3,9 @@ package Pengguna;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -20,23 +22,32 @@ public class Menu_Pintu extends AppCompatActivity {
     RequestQueue requestQueue;
     ProgressDialog pDialog;
 
+    SharedPreferences sp;
+    public static final String USER_PREF = "USER_PREF" ;
+    public static final String userName = "userName";
+    public static final String ID = "_id";
+    public static final String NamaLengkap = "namaLengkap";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.menu__pintu);
 
+        sp = getSharedPreferences(USER_PREF, Context.MODE_PRIVATE);
+
         linearBukaPintu = (LinearLayout) findViewById(R.id.linearBukaPintu);
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
+        String idUser = sp.getString(ID, "");
         linearBukaPintu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pDialog.setMessage("Loading");
                 Toast.makeText(getApplicationContext(), "Pintu Terbuka", Toast.LENGTH_LONG).show();
                 Controlling controlling = new Controlling();
-                controlling.controll(requestQueue, Menu_Pintu.this, "Buka Pintu", "Berhasil Membuka Pintu");
+                controlling.controll(requestQueue, Menu_Pintu.this, "Buka Pintu", idUser,"Berhasil Membuka Pintu");
             }
         });
     }

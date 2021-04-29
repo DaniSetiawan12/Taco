@@ -5,6 +5,7 @@ package controlling;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,18 +18,21 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Server.BaseURL;
+
 public class Controlling {
 
     ProgressDialog pDialog;
 
-    public void controll(RequestQueue requestQueue, Context context, String endPoint, String keterangan){
+
+    public void controll(RequestQueue requestQueue, Context context, String endPoint, String useId, String keterangan){
         requestQueue = Volley.newRequestQueue(context);
         pDialog = new ProgressDialog(context);
         pDialog.setCancelable(false);
 
         pDialog.setMessage("Loading");
         showDialog();
-        JsonObjectRequest req = new JsonObjectRequest("http://192.168.18.57:10/perintah/update-perintah/" + endPoint, null,
+        JsonObjectRequest req = new JsonObjectRequest(BaseURL.controlling + endPoint+ "?user=" + useId, null,
                 new Response.Listener<JSONObject>
                         () {
                     @Override

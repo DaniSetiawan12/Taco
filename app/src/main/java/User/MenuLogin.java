@@ -39,6 +39,8 @@ public class MenuLogin extends AppCompatActivity {
     public static final String USER_PREF = "USER_PREF" ;
     public static final String login = "login";
     public static final String userName = "userName";
+    public static final String ID = "_id";
+    public static final String NamaLengkap = "namaLengkap";
 
 
     @Override
@@ -126,6 +128,8 @@ public class MenuLogin extends AppCompatActivity {
                                 SharedPreferences.Editor editor = sp.edit();
                                 editor.putString(login, "1");
                                 editor.putString(userName, username);
+                                editor.putString(ID, _id);
+                                editor.putString(NamaLengkap, namaTaco);
                                 editor.commit();
                             }else {
                                 Toast.makeText(getApplicationContext(), strMsg, Toast.LENGTH_LONG).show();

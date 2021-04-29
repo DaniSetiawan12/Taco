@@ -12,11 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Teco"
         android:usesCleartextTraffic="true">
-        <activity android:name="Admin.menu_Admin" />
-        <activity android:name=".content_history" />
-        <activity android:name="Model.Model_Taco" />
-        <activity android:name=".KonfirmasiSandi" />
-        <activity android:name=".KonfirmasiSandi" />
+        <activity android:name=".History"></activity>
+        <activity android:name="Admin.menu_Admin" /> <!-- <activity android:name="Model.Model_Taco" /> -->
+        <activity android:name=".KonfirmasiSandi" /> <!-- <activity android:name=".KonfirmasiSandi" /> -->
         <activity android:name="Admin.DataAdmin" />
         <activity android:name=".DataPengguna" />
         <activity android:name="User.Registrasi" />

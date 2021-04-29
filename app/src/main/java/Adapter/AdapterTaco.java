@@ -9,14 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dwiromadon.myapplication.R;
-import com.dwiromadon.myapplication.model.ModelPetshop;
-import com.dwiromadon.myapplication.server.BaseURL;
 
 import Model.ModelTaco;
-import Model.Model_Taco;
 import com.example.teco.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -56,11 +51,8 @@ public class AdapterTaco extends BaseAdapter {
 
 
         TextView namaTaco = (TextView) convertView.findViewById(R.id.txtNamaTaco);
-        ImageView gambar     = (ImageView) convertView.findViewById(R.id.gambarPetshop);
-        TextView Tanggal      = (TextView) convertView.findViewById(R.id.txtTanggal);
 
         namaTaco.setText(item.get(position).getNamaTaco());
-        Tanggal.setText(item.get(position).getTanggal());
 
         return convertView;
     }
